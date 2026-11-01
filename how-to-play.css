@@ -1,0 +1,69 @@
+/* Reuse the game's panel, typography and button tokens. */
+html:has(.play-help[open]) {
+  overflow: hidden;
+}
+
+.help-trigger {
+  min-height: 44px;
+  padding: 10px;
+  font-size: 12px;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.play-help {
+  width: min(440px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+}
+
+.play-help::backdrop {
+  background: #0b0b0dcc;
+}
+
+.play-help h2 {
+  margin: 0;
+}
+
+.play-help ol {
+  margin: 18px 0 24px;
+  padding-inline-start: 24px;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.play-help li + li {
+  margin-top: 12px;
+}
+
+.play-help li::marker {
+  color: var(--active);
+}
+
+.play-help .btn {
+  min-height: 44px;
+  display: block;
+  margin-inline-start: auto;
+}
+
+.help-trigger:focus-visible,
+.play-help .btn:focus-visible {
+  outline: 2px solid var(--active);
+  outline-offset: 3px;
+}
+
+@media (forced-colors: active) {
+  .help-trigger:focus-visible,
+  .play-help .btn:focus-visible {
+    outline-color: Highlight;
+  }
+}
